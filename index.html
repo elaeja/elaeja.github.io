@@ -2,9 +2,24 @@
 <html>
 <body>
 
-<h1>Elaeja</h1>
-<img src="elaeja.png" width="128" height="128">
-<p></p>
+  <h1>Elaeja</h1>
+  <canvas id="canvas" width="128" height="128"></canvas>
+  <img id="sourceImage" src="elaeja.png" style="display:none;" alt="Source Image">
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const img = document.getElementById('sourceImage');
+
+    img.onload = function() {
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'low';
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+
+    // Load the image
+    img.src = 'elaeja.png';
+  </script>
 
 <h3>Blog Posts</h3>
 
