@@ -12,7 +12,7 @@
     const img = document.getElementById('sourceImage');
 
     img.onload = function() {
-        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingEnabled = false;
         ctx.imageSmoothingQuality = 'low';
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
