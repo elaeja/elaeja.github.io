@@ -9,21 +9,23 @@
     }
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #3e6e9e;
+      text-align: left;
+      background-color: #090909;
       margin: 0;
       padding: 20px;
+      color: white;
     }
     h1 {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
+        color: white;
     }
     canvas {
-      border: 1px solid #ccc;
       margin: 10px 0;
     }
     h3 {
       margin-top: 40px;
       color: #333;
+      color: white;
     }
     ul {
       list-style-type: none;
@@ -34,7 +36,7 @@
     }
     a {
       text-decoration: none;
-      color: #007acc;
+      color: #009acc;
     }
     a:hover {
       text-decoration: underline;
@@ -43,44 +45,11 @@
 </head>
 <body>
 
-  <h1>Elaeja</h1>
-
-  <canvas id="canvas" width="128" height="128"></canvas>
-  <img id="sourceImage" src="elaeja.png" style="display:none;" alt="Source Image">
-
-  <h2>This is a test</h2>
+  
+  <h2>this is a test</h2>
   <ul>
     <li><a href="index.html">home</a></li>
   </ul>
-
-  <script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = document.getElementById('sourceImage');
-
-    // Spritesheet settings
-    const frameWidth = 32;
-    const frameHeight = 32;
-    const frameCount = 15;
-    let currentFrame = 0;
-    const fps = 5; // frames per second
-
-    img.onload = function() {
-        setInterval(() => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-            ctx.drawImage(
-                img,
-                currentFrame * frameWidth, 0,      // Source x, y
-                frameWidth, frameHeight,            // Source width, height
-                0, 0,                               // Destination x, y
-                canvas.width, canvas.height         // Destination width, height
-            );
-
-            currentFrame = (currentFrame + 1) % frameCount; // Loop the frames
-        }, 1000 / fps);
-    };
-
-  </script>
 
 </body>
 </html>
