@@ -59,10 +59,26 @@
     const ctx = canvas.getContext('2d');
     const img = document.getElementById('sourceImage');
 
+    // Spritesheet settings
+    const frameWidth = 32;
+    const frameHeight = 32;
+    const frameCount = 7; // number of frames horizontally
+    let currentFrame = 0;
+    const fps = 5; // frames per second
+
     img.onload = function() {
-      ctx.imageSmoothingEnabled = false;
-      ctx.imageSmoothingQuality = 'low';
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        setInterval(() => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+            ctx.drawImage(
+                img,
+                currentFrame * frameWidth, 0,      // Source x, y
+                frameWidth, frameHeight,            // Source width, height
+                0, 0,                               // Destination x, y
+                canvas.width, canvas.height         // Destination width, height
+            );
+
+            currentFrame = (currentFrame + 1) % frameCount; // Loop the frames
+        }, 1000 / fps);
     };
 
   </script>
