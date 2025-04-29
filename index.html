@@ -46,7 +46,7 @@
   <h1>elaeja</h1>
 
   <canvas id="canvas" width="128" height="128"></canvas>
-  <img id="sourceImage" src="elaeja.png" style="display:none;" alt="Source Image">
+  <img id="sourceImage" src="piskel_raven_v2.png" style="display:none;" alt="Source Image">
 
   <h2>blog posts</h2>
   <ul>
@@ -64,9 +64,11 @@
     const frameHeight = 32;
     const frameCount = 7; // number of frames horizontally
     let currentFrame = 0;
-    const fps = 5; // frames per second
+    const fps = 10; // frames per second
 
     img.onload = function() {
+        ctx.imageSmoothingEnabled = false;
+        ctx.imageSmoothingQuality = 'low';
         setInterval(() => {
             ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
             ctx.drawImage(
